@@ -6,7 +6,6 @@ var Twit = require('twit')
     EventEmitter = require('events').EventEmitter,
     filesEE = new EventEmitter(),
     config = require(path.join(__dirname, 'config.js'));
-
     images=[];
 
 var tweet = new Twit(config);
@@ -17,33 +16,38 @@ imagesArray.forEach( function (file) {
     images.push(file);
 });
 
-var image = images[Math.floor(Math.random()*images.length)];
-console.log(image);
+var randImage = images[Math.floor(Math.random()*images.length)];
 
-function upload_random_image(){
+console.log(randImage);
 
-  // var b64content = fs.readFileSync(image, { encoding: 'base64' });
+function tweetImage(){
 
-  console.log('Uploading an image...');
+  var b64content = fs.readFileSync('./images/' + randImage, { encoding: 'base64' });
 
-  tweet.post('media/upload', { media_data: image }, function (err, data, response) {
+  tweet.post('media/upload', { media_data: b64content }, function (err, data, response) {
     if (err){
       console.log('ERROR');
       console.log(err);
     }
     else{
-      console.log('Uploaded an image!');
+
+      console.log('UPLOADING....');
 
       tweet.post('statuses/update', {
         media_ids: new Array(data.media_id_string)
       },
         function(err, data, response) {
           if (err){
-            console.log('Error!');
+            console.log('aaaaaand its an error.');
             console.log(err);
           }
           else{
-            console.log('Posted an image!');
+            console.log('_______________________________________________________');
+            console.log('          BLANKBOT HAS TWEETED AN IMAGE!');
+            console.log('          http://twitter.com/blank_waves')
+            console.log('_______________________________________________________');
+
+fs.unlink('./images/' + randImage);
           }
         }
       );
@@ -52,6 +56,6 @@ function upload_random_image(){
 }
 
 setInterval(
-  upload_random_image(),
+  tweetImage(),
   10000
 );
