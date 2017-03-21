@@ -3,9 +3,6 @@ var Twit = require('twit')
     path = require('path'),
     Twit = require('twit'),
     shuffle = require('shuffle-array'),
-    dir = require('node-dir'),
-    EventEmitter = require('events').EventEmitter,
-    filesEE = new EventEmitter(),
     config = require(path.join(__dirname, 'config.js'));
 
 
@@ -17,11 +14,10 @@ function tweetImage() {
     var imagesArray = fs.readdirSync('./images/');
 
     // Shuffle images
-    collection = imagesArray;
-    shuffle(collection);
+    shuffle(imagesArray);
 
     // Pick random image
-    var randImage = collection[Math.floor(Math.random() * imagesArray.length)];
+    var randImage = imagesArray[Math.floor(Math.random() * imagesArray.length)];
     console.log("IMAGE CHOSEN: " + randImage);
 
     // Convert content to base64
