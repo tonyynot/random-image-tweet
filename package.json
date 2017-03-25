@@ -1,24 +1,31 @@
 {
-	"name": "image-scraper",
-	"version": "0.2.0",
-	"description": "Scrape images from a website easily.",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/leon-vv/node-image-scraper.git"
-	},
-	"dependencies":{
-		"cheerio":">=0.12.0"
-	},
-	"keywords": [
-		"scrape",
-		"image",
-		"web-scraper",
-		"scraper"
-	],
-	"author": "Léon van Velzen",
-	"license": "MIT"
+  "name": "blank_bot",
+  "version": "1.1.0",
+  "description": "random image aggregator that post to twitter",
+  "main": "tweet.js",
+  "dependencies": {
+    "shuffle-array": "^1.0.1",
+    "twit": "^2.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonyynot/random-image-tweet.git"
+  },
+  "keywords": [
+    "twitter",
+    "bot",
+    "random",
+    "image",
+    "node"
+  ],
+  "author": "Anthony Ramella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonyynot/random-image-tweet/issues"
+  },
+  "homepage": "https://github.com/tonyynot/random-image-tweet#readme"
 }
