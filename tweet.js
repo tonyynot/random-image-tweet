@@ -5,10 +5,10 @@ var Twit = require('twit')
     shuffle = require('shuffle-array'),
     config = require(path.join(__dirname, 'config.js'));
 
+    var tweet = new Twit(config);
 
 function tweetImage() {
 
-    var tweet = new Twit(config);
 
     // Define images path
     var imagesArray = fs.readdirSync('./images/');
@@ -17,7 +17,7 @@ function tweetImage() {
     shuffle(imagesArray);
 
     // Pick random image
-    var randImage = imagesArray[Math.floor(Math.random() * imagesArray.length)];
+    var randImage = shuffle.pick(imagesArray);
     console.log("IMAGE CHOSEN: " + randImage);
 
     // Convert content to base64
