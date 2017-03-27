@@ -5,11 +5,10 @@ var Twit = require('twit')
     shuffle = require('shuffle-array'),
     config = require(path.join(__dirname, 'config.js'));
 
-    var tweet = new Twit(config);
-
 function tweetImage() {
 
-
+    var tweet = new Twit(config);
+    
     // Define images path
     var imagesArray = fs.readdirSync('./images/');
 
