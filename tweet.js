@@ -5,11 +5,10 @@ var Twit = require('twit')
     shuffle = require('shuffle-array'),
     config = require(path.join(__dirname, 'config.js'));
 
-    var tweet = new Twit(config);
-
 function tweetImage() {
 
-
+    var tweet = new Twit(config);
+    
     // Define images path
     var imagesArray = fs.readdirSync('./images/');
 
@@ -63,4 +62,4 @@ function tweetImage() {
 }
 setInterval(function() {
     tweetImage();
-}, 600000 * 6); // Tweets in 1 hour intervals
+}, 30 * 60 * 1000); // Tweets in 30 minute intervals
